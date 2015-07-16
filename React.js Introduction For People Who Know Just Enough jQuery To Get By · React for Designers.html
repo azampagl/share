@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<!-- saved from url=(0104)http://reactfordesigners.com/labs/reactjs-introduction-for-people-who-know-just-enough-jquery-to-get-by/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="http://reactfordesigners.com/styles.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://reactfordesigners.com/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="http://reactfordesigners.com/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="React for Designers" href="http://reactfordesigners.com/atom.xml">
+
+  
+  <meta property="og:type" content="article">
+  
+  
+  
+  
+
+  <meta property="og:url" content="http://reactfordesigners.com/labs/reactjs-introduction-for-people-who-know-just-enough-jquery-to-get-by/">
+  <meta property="og:title" content="React.js Introduction For People Who Know Just Enough jQuery To Get By">
+  <meta property="og:description" content="TweetI also heard React.js was good and recently spent some time playing with it. Now that I&#39;m pretty comfortable with React, I decided to write a tutorial on this subject.Target Audience: Peop...
+  ">
+  
+  <meta property="og:image" content="http://reactfordesigners.com/images/labs/jquery-style-vs-react-style.png">
+  
+
+  <link href="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/classic-081711.css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+  	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+  </style>
+<script type="text/javascript" async="" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/embed.js"></script></head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+        <h3 class="masthead-title">
+          <div class="post-page__logo-wrapper">
+            <a href="http://reactfordesigners.com/" title="Home">
+              <img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/react-logo-dark.svg" alt="React" class="post-page__logo">
+              React for Designers
+            </a>
+          </div>
+        </h3>
+      </header>
+
+      <main>
+        <article class="post" data-twttr-id="twttr-sandbox-0">
+  <h1 class="post-title">React.js Introduction For People Who Know Just Enough jQuery To Get By</h1>
+  <time datetime="2015-06-26T00:00:00+00:00" class="post-date">26 Jun 2015</time>
+  <p><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/tweet_button.9b77a1cb4bd14da06dfa5e2f65422c91.en.html" class="twitter-share-button twitter-tweet-button twitter-share-button twitter-count-horizontal" title="Twitter Tweet Button" data-twttr-rendered="true" style="position: static; visibility: visible; width: 127px; height: 28px;"></iframe></p>
+
+<iframe id="twitter-widget-3" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-tweet twitter-tweet-rendered" allowfullscreen="" style="border: none; max-width: 100%; min-width: 220px; margin: 10px 0px; padding: 0px; display: block; position: static; visibility: visible; width: 500px;" title="Twitter Tweet" height="789"></iframe>
+
+<p>I also heard React.js was good and recently spent some time playing with it. Now that I'm pretty comfortable with React, I decided to write a tutorial on this subject.</p>
+
+<h2>Target Audience: People Who Know Just Enough jQuery to Get by</h2>
+
+<p>Before I begin, I'd like to clarify who my target audience is.</p>
+
+<p>Zed Shaw, the author of "<a href="http://learncodethehardway.org/">Learn Code the Hard Way</a>" series, recently wrote an excellent blog post called <a href="http://zedshaw.com/2015/06/16/early-vs-beginning-coders/">Early v.s. Beginning Coders</a>. In his post, Zed criticizes programming educators who claim that their materials are for "beginners", but in reality are incomprehensible for most "total" beginners.</p>
+
+<p>I don't want to make a similar mistake here. Of people who have never tried out React, some are comfortable with frontend JS frameworks like <a href="http://backbonejs.org/">Backbone</a>, <a href="http://emberjs.com/">Ember</a>, or <a href="https://angularjs.org/">Angular</a>. Some know JavaScript pretty well. Some know just enough jQuery to get by. A tutorial that's effective for one group may not be optimal for the other groups.</p>
+
+<p>In this tutorial, I'm targeting the third group I mentioned: <strong>people who know just enough jQuery to get by</strong>. Examples of people who might fit in this category would be:</p>
+
+<ul>
+<li>Designers who can do basic coding in HTML/CSS/jQuery.</li>
+<li>WordPress developers who know how to use jQuery plugins.</li>
+<li>Beginning developers who have completed basic HTML/CSS/JS tutorials online.</li>
+<li>Backend developers who rely on Bootstrap and basic jQuery for their frontend needs.</li>
+<li>Anyone who does more copy-pasting than architecting when it comes to JavaScript.</li>
+</ul>
+
+<p><strong>If you're comfortable with JavaScript or any of the frontend frameworks like Backbone/Ember/Angular, this tutorial is NOT for you</strong>, and you'll be very frustrated with my writing style. There are tons of great tutorials you can learn from, including <a href="http://facebook.github.io/react/docs/tutorial.html">the official React tutorial</a>.</p>
+
+<p>Also, <strong>if you already know React</strong>, you'll be pretty upset with me as well because I'll be talking mostly about <strong>states</strong> instead of immutability or componetization. However, I found that teaching states first is the best way for jQuery developers to see why React is superior.</p>
+
+<p>Anyways, let's get started!</p>
+
+<h2>Time Estimate: 1 ~ 2 hours</h2>
+
+<p>If you go really fast (and copy-paste example code instead of typing), this tutorial should take a bit over an hour. If you go slow, it should take a bit over 2 hours.</p>
+
+<h3>If you're stuck</h3>
+
+<p>If you're stuck, do any of the following:</p>
+
+<ul>
+<li>Comment on the comment box at the very bottom of this page.</li>
+<li>Email me at <a href="mailto:shu@chibicode.com">shu@chibicode.com</a>.</li>
+<li>Tweet me at <a href="http://twitter.com/chibicode">@chibicode</a>.</li>
+<li>File an issue <a href="https://github.com/reactfordesigners/reactfordesigners.github.io/issues">on this repo</a>.</li>
+</ul>
+
+<h3>Note: Your Browser's Back Button Might Break</h3>
+
+<p>There seems to be an issue with this page, where (1) the browser constantly reloads itself while viewing this page, and (2) as a result, your browser's back button gets broken. There seems to be an issue in the JSBin code I'm using, and <a href="https://github.com/jsbin/jsbin/issues/2464">I reported the issue here</a>. My apologies.</p>
+
+<h2>Overview: We're Going to Build a "Tweet Box"</h2>
+
+<p>Many React.js tutorials begin by explaining how React works or why React is awesome. My tutorial does not.</p>
+
+<p>Instead, we'll get right to building a simple UI, alternating between jQuery implementations and React.js implementations, explaining the differences along the way. I believe that you'll think more this way as opposed to just typing out examples.</p>
+
+<p>The UI we'll build will resemble the Tweet box that you find on <a href="http://twitter.com/">Twitter</a>. It won't be exactly like the real Tweet box, but it'll be pretty similar. Hopefully you'll find this example to be practical.</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/tweet-box.png" alt=""></p>
+
+<h2>Step 1: Introduction to JSBin (5 - 10 minutes)</h2>
+
+<p>We'll be using <a href="http://jsbin.com/">JSBin</a>, an online HTML/CSS/JS editor which supports both jQuery and React.js code. You might be familiar with similar services like <a href="http://codepen.io/">CodePen</a> or <a href="https://jsfiddle.net/">JSFiddle</a> - they're all pretty similar, so I just decided to go with JSBin.</p>
+
+<p>Here's an example JSBin:</p>
+
+<p class="jsbin-wrapper">
+  <iframe class="" id="" data-url="http://jsbin.com/temaduv/1/embed?html,output" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/embed-holding.html" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe>
+  <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/temaduv/1/edit">Click here</a>.</span>
+</p>
+
+<p><strong>Try modifying the HTML on the left</strong> - i.e. change the button's text. You'll see the change on the right. That's how JSBin works.</p>
+
+<h3>Create a JSBin Account</h3>
+
+<p>Unless you already have a JSBin account, <strong>head to <a href="http://jsbin.com/" target="_blank">jsbin.com</a> to create an account.</strong> Click <strong>Login or Register</strong> on the menu to create an account.</p>
+
+<p>After creating an account, you can <strong>clone</strong> public JSBins to your account, just like you clone public GitHub repositories.</p>
+
+<p>Let's try it. <strong>Click "Save" on the menu on the JSBin below</strong>.</p>
+
+<p class="jsbin-wrapper">
+  <iframe class="" id="" data-url="http://jsbin.com/temaduv/1/embed?html,output" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/embed-holding.html" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe>
+  <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/temaduv/1/edit">Click here</a>.</span>
+</p>
+
+<p>Once you're on the JSBin site, you can select "Add Library" from the menu to import popular CSS/JS libraries.</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/add-library.png" alt=""></p>
+
+<p><strong>Try doing the following</strong>:</p>
+
+<ul>
+<li><strong>Click "Add Library" and add the latest Bootstrap</strong></li>
+<li><strong>Add <code>btn btn-primary</code> classes on <code>&lt;button&gt;</code></strong></li>
+</ul>
+
+<p>And the output becomes a little prettier:</p>
+
+<p class="jsbin-wrapper">
+  <iframe class="" id="" data-url="http://jsbin.com/cocica/1/embed?html,output" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/embed-holding.html" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe>
+  <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/cocica/1/edit">Click here</a>.</span>
+</p>
+
+<h3>Create a Tweet Box</h3>
+
+<p>You seem to be pretty comfortable with JSBin now. Alright, let's build out a Tweet box. Still on the same JSBin as before, <strong>change the HTML inside <code>&lt;body&gt;</code> like this:</strong></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;div class="well clearfix"&gt;
+  &lt;textarea class="form-control"&gt;&lt;/textarea&gt;&lt;br/&gt;
+  &lt;button class="btn btn-primary pull-right"&gt;Tweet&lt;/button&gt;
+&lt;/div&gt;
+</code></pre></div>
+<p>We're using Bootstrap classes like <code>form-control</code>, <code>well</code>, <code>clearfix</code>, etc., but those are just for the looks and irrelevant for the tutorial. Here's the result:</p>
+
+<p class="jsbin-wrapper">
+  <iframe class="" id="" data-url="http://jsbin.com/jofivi/1/embed?html,output" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/embed-holding.html" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe>
+  <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/jofivi/1/edit">Click here</a>.</span>
+</p>
+
+<p>That's it for this step! Not too bad, eh?</p>
+
+<h2>Step 2: Implement the First Feature - Tweet Button Should Initially Be Disabled (5 minutes)</h2>
+
+<p>Now, time for some JS. We'll first implement the following feature:</p>
+
+<p><strong>Feature 1:</strong> the "Tweet" button should initially be disabled. When there's at least one character in the text field, the "Tweet" button should be enabled.</p>
+
+<p>Here's the demo. As you can see, the button is initially disabled. If you type something into the text box, the button becomes enabled.</p>
+
+<p><iframe class="" id="" data-url="http://jsbin.com/wewimu/2/embed?output" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/embed-holding.html" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe> <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/wewimu/2/edit">Click here</a>.</span></p>
+
+<p>To get this to work, <strong>continue from the previous JSBin, open the JavaScript tab, and add the following jQuery code</strong>. You don't need to add jQuery because Bootstrap, which we added on the previous step, includes jQuery.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">// Initially disable the button
+$("button").prop("disabled", true);
+
+// When the value of the text area changes...
+$("textarea").on("input", function() {
+  // If there's at least one character...
+  if ($(this).val().length &gt; 0) {
+    // Enable the button.
+    $("button").prop("disabled", false);
+  } else {
+    // Else, disable the button.
+    $("button").prop("disabled", true);
+  }
+});
+</code></pre></div>
+<h3>Explanation</h3>
+
+<ul>
+<li>I used the tag names, <code>button</code> and <code>textarea</code>, as selectors - no need to add IDs/classes for this trivial example.</li>
+<li>To enable/disable the button, use <code>$(...).prop(disabled, ...)</code>.</li>
+<li>To listen for the changes in <code>textarea</code>, use the <code>input</code> event, which works on modern browsers.</li>
+</ul>
+
+<p><strong>Try it out</strong> by typing some text in the Tweet box and seeing the button's enabled/disabled state change.</p>
+
+<p>DO NOT PROCEED if this example was confusing to you - you might need to learn some more jQuery before moving onto React. There are lots of excellent learning resources like <a href="http://www.codecademy.com/en/tracks/jquery">Codecademy</a>, <a href="http://teamtreehouse.com/library/jquery-basics">Treehouse</a>, <a href="https://www.codeschool.com/courses/try-jquery">Code School</a>, and others.</p>
+
+<p>Now that this feature is complete, we'll try to re-implement the same thing using React. This will take several steps.</p>
+
+<h2>Step 3: The Tweet Box Using React.js (5 - 10 minutes)</h2>
+
+<p>One of the first things you'll notice in React is that <strong>you'll be writing markup in JS, not in HTML</strong>.</p>
+
+<p>Let me show you what I mean. Here's the React.js code which displays the same Tweet box.</p>
+
+<h3>WARNING! You don't need to follow along yet - just read the code.</h3>
+
+<p class="jsbin-wrapper">
+  <iframe class="" id="" data-url="http://jsbin.com/wewimu/6/embed?js,output" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/embed-holding.html" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe>
+  <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/wewimu/6/edit">Click here</a>.</span>
+</p>
+
+<p>Some observations:</p>
+
+<ul>
+<li>Inside <code>return (...)</code> is HTML code, not JavaScript. In React, you'll write in a special syntax called JSX, which lets you put HTML-like code inside JavaScript.</li>
+<li>I say HTML-"like" because it's not identical to HTML. Notice that it uses <code>className</code> instead of <code>class</code> - but they're pretty similar, so you'll learn them quickly.</li>
+<li>Your browser does not understand JSX, so when React processes your JSX code, it automatically converts the HTML part inside JSX into valid JavaScript code so that the browser can understand it.</li>
+<li>The HTML code inside <code>return (...)</code> is pretty much identical to the HTML code from step 1.</li>
+<li>Try clicking on "HTML" on the above JSBin, and you'll see that there's no markup in HTML besides <code>&lt;body&gt;&lt;/body&gt;</code>. This is what I mean when I said <strong>in React, you'll be writing markup in JavaScript (JSX), not in HTML</strong>.</li>
+</ul>
+
+<h3>Frequently Asked Questions &amp; Answers</h3>
+
+<p><strong>Question</strong>: What do <code>React.createClass</code> and <code>React.render</code> do? Do I need to understand them now? <br>
+<strong>Answer</strong>: Don't worry about it for now. Basically, <code>React.createClass</code> creates a piece of UI with a name (in this case, <code>TweetBox</code>). This then gets attached to the DOM through <code>React.render(&lt;TweetBox /&gt;, document.body)</code> - meaning this UI is added inside the <code>body</code> tag. That's all you need to know for now.</p>
+
+<p><strong>Question</strong>: Do I need to do anything special to write JSX on my local machine?<br>
+<strong>Answer</strong>: Yes, but that's outside the scope of this tutorial - in short, you need to import something called JSX transformer (<a href="http://facebook.github.io/react/downloads.html" target="_blank">here's how</a>). This step is not necessary on JSBin though. All you need to do to write JSX on JSBin is to (1) add a React library (the one without addons) from the dropdown and (2) select "JSX (React)" from the dropdown menu on the JS view.</p>
+
+<p><strong>Question</strong>: Isn't it a bad style to write markup (HTML) and behaviors (JS) in the same place?<br>
+<strong>Answer</strong>: It might be a bad style for simple web pages, but not necessarily so for large web applications. In large web applications, there will be hundreds of pieces of UI, each containing its own markup and behaviors. The code will be more manageable if those markup and behaviors are kept together for each piece of UI, as opposed to keeping "all markup" together and "all behaviors" together. And React is designed for developing large web applications. In fact, React was actually created and used by Facebook, one of the largest web applications ever.</p>
+
+<p>Next, I'll show you how to write the above React code step-by-step.</p>
+
+<h2>Step 4: Writing Your First React.js Code (5 - 10 minutes)</h2>
+
+<p>I created a starter HTML file for you. Using "Add library," I've imported Bootstrap (removed bootstrap.js and jquery) and React (without addons).</p>
+
+<p><strong>Please try to follow along. To begin, click "Save" to copy this to your JSBin.</strong></p>
+
+<p><iframe class="" id="" data-url="http://jsbin.com/notawe/1/embed?html" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/embed-holding.html" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe> <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/notawe/1/edit">Clnotaick here</a>.</span></p>
+
+<p>After saving to your JSBin, <strong>open the JavaScript tab and select "JSX (React)"</strong>:</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/select-jsx.png" alt=""></p>
+
+<p>Now you're ready to write some React. <strong>Try to follow along and type the following JS code snippets</strong> on your JSBin.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">var TweetBox = React.createClass({
+  render: function() {
+  }
+});
+</code></pre></div>
+<p>This is the template for creating a piece of UI using React (in this case, a Tweet box). It's just as essential as <code>$(function() { ... })</code> on jQuery.</p>
+
+<p>To actually construct the UI, we must fill in the <code>render()</code> method. For now, let's keep it simple with just a single <code>div</code> tag.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">var TweetBox = React.createClass({
+  render: function() {
+    return (
+      &lt;div&gt;
+        Hello World!
+      &lt;/div&gt;
+    );
+  }
+});
+</code></pre></div>
+<p>Like the above example, <strong>put a pair of parenthesis <code>(...)</code> after <code>return</code>, and write the markup inside.</strong></p>
+
+<h3>JSX Gotchas</h3>
+
+<p>There's one thing you need to remember with JSX - on <code>render()</code>, there must be exactly <strong>one</strong> outer-most tag inside <code>return (...)</code>.</p>
+
+<p>So the following doesn't work because there's zero outer-most tag:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">return (
+  Hello World!
+);
+</code></pre></div>
+<p>This also doesn't work because there are two outer-most (<code>span</code>) tags inside <code>return (...)</code>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">return (
+  &lt;span&gt;
+    Hello
+  &lt;/span&gt;
+  &lt;span&gt;
+    World
+  &lt;/span&gt;
+);
+</code></pre></div>
+<p>For the above example, the workaround is to create an extra tag which wraps the two <code>span</code> tags. I just used <code>div</code> here. This is a necessary evil when using React.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">return (
+  &lt;div&gt;
+    &lt;span&gt;
+      Hello
+    &lt;/span&gt;
+    &lt;span&gt;
+      World
+    &lt;/span&gt;
+  &lt;/div&gt;
+);
+</code></pre></div>
+<h3>Attaching the UI to the DOM</h3>
+
+<p>Now we need to "attach" this UI to the DOM in order to see <code>Hello World</code>. To do this, <strong>add <code>React.render()</code> below the code we just wrote</strong>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">var TweetBox = React.createClass({
+  ...
+});
+
+React.render(
+  &lt;TweetBox /&gt;,
+  document.body
+);
+</code></pre></div>
+<p>(<strong>Note</strong>: an ellipsis (<code>...</code>) on the code snippet indicates code that has been omitted for clarity. In other words, don't touch this part of the code and leave it as is.)</p>
+
+<p><code>React.render</code> takes two arguments. The first argument is the UI object, which is <code>&lt;VariableName /&gt;</code>. The second argument is the DOM object (in this case, <code>document.body</code>). Put together, the above code renders the <code>TweetBox</code> UI inside <code>body</code>.</p>
+
+<p>Now, you should see <code>Hello World</code> appear on your JSBin. Congratulations, you wrote your first React UI!</p>
+
+<h3>Write the Actual HTML for the Tweet Box</h3>
+
+<p>Now, instead of <code>Hello World</code>, we'll implement the HTML for the Tweet Box. <strong>Swap the code inside <code>render()</code> with this:</strong></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">return (
+  &lt;div className="well clearfix"&gt;
+    &lt;textarea className="form-control"&gt;&lt;/textarea&gt;
+    &lt;br/&gt;
+    &lt;button className="btn btn-primary pull-right"&gt;Tweet&lt;/button&gt;
+  &lt;/div&gt;
+);
+</code></pre></div>
+<p>There are two things you need to watch out for:</p>
+
+<ul>
+<li><strong>Do not use <code>class</code></strong>. Instead, use <code>className</code>. It's because JSX gets translated to JS, and <code>class</code> is a keyword in the newest version of JS.</li>
+<li><strong>If you use <code>&lt;br&gt;</code> instead of <code>&lt;br/&gt;</code>, it won't work.</strong> Make sure to put <code>/</code> on self-closing tags.</li>
+</ul>
+
+<p>Everything else should be the same with the jQuery example from before.</p>
+
+<p>If you typed this correctly, then you should see the Tweet box on your JSBin. <strong>If nothing appears in the output, then check your code very carefully, to make sure there aren't any typos.</strong></p>
+
+<p>That's it for this step! Here's the JSBin up to this part:</p>
+
+<p class="jsbin-wrapper">
+  <iframe class="" id="" data-url="http://jsbin.com/vajica/2/embed?js,output" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/embed-holding.html" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe>
+  <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/vajica/2/edit">Click here</a>.</span>
+</p>
+
+<h2>Step 5: Re-implement the First Feature - Tweet Button Should Initially Be Disabled - in React (5 - 10 minutes)</h2>
+
+<p>We're going to re-implement in React the first feature we implemented using jQuery:</p>
+
+<p><strong>Feature 1</strong>: the "Tweet" button should initially be disabled. When there's at least one character in the text field, the "Tweet" button should be enabled.</p>
+
+<p>Here's the jQuery code we wrote:</p>
+
+<p class="jsbin-wrapper">
+  <iframe class="" id="" data-url="http://jsbin.com/wewimu/3/embed?js,output" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/embed-holding.html" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe>
+  <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/wewimu/3/edit">Click here</a>.</span>
+</p>
+
+<p>Let's see how we can do this in React.</p>
+
+<p><strong>Start with the JSBin from the previous step.</strong> (<strong>Tip</strong>: Since you won't be touching HTML in React, <strong>you can close the HTML tab on JSBin</strong> so you can get more screen space).</p>
+
+<p><strong>First, let's disable the button by adding <code>disabled</code>.</strong></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">render: function() {
+  return (
+    ...
+    &lt;button className="..." disabled&gt;Tweet&lt;/button&gt;
+    ...
+  );
+}
+</code></pre></div>
+<p>Then the button should now be disabled. Note that in our jQuery implementation we wrote:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$("button").prop("disabled", true);
+</code></pre></div>
+<p>to initially disable the button, but we could have instead modified the <code>button</code> tag like above.</p>
+
+<p>Now, we need to enable the button when there's at least one character in the text field.</p>
+
+<h3>Handle Change Event</h3>
+
+<p>First, we need to wait when users enter the text. In our jQuery implementation, we wrote:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$("textarea").on("input", function() {
+  ...
+}
+</code></pre></div>
+<p>In the React land, we write the event handler as a <strong>method</strong>. <strong>Let's call it <code>handleChange</code></strong>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">React.createClass({
+  handleChange: function(event) {
+  },
+  render: function() {
+    ...
+  }
+});
+</code></pre></div>
+<p>Next, we invoke this handler when text is entered. To do so, <strong>modify the <code>textarea</code> tag in <code>render()</code> like this</strong>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;textarea className="form-control"
+          onChange={this.handleChange}&gt;&lt;/textarea&gt;
+</code></pre></div>
+<ul>
+<li>We used <code>input</code> event for jQuery, but in React we use <code>onChange</code> - you'll learn about how events differ in React's JSX from React's documentation, so don't worry too much now.</li>
+<li><strong>More importantly</strong>, we use <code>{...}</code> syntax to include any JavaScript code inside the HTML syntax part of JSX. In this case, we want to pass the handler <code>handleChange</code>, and we prefix it with <code>this.</code> because it's a method on this UI object.</li>
+<li>If you're used to jQuery, this might seem like a bad practice, but don't worry. Again, in large applications, the code will be more manageable if those markup and behaviors are kept together for each piece of UI.</li>
+</ul>
+
+<p>To make sure that the handler is indeed being called, <strong>let's add <code>console.log</code> inside <code>handleChange</code></strong>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">handleChange: function(event) {
+  console.log(event.target.value);
+},
+</code></pre></div>
+<p>The <code>event</code> object contains <code>target</code>, which is the <code>textarea</code>. We use <code>.value</code> on it to output the current value of the <code>textarea</code>.</p>
+
+<p><strong>In your JSBin, open the <code>console</code> tab to check the output. Then type something on the Tweet box.</strong></p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/console-tab.png" alt=""></p>
+
+<p>You can try it out here:</p>
+
+<p class="jsbin-wrapper">
+  <iframe class="" id="" data-url="http://jsbin.com/kohudu/2/embed?javascript,console,output" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/embed-holding.html" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe>
+  <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/kohudu/2/edit">Click here</a>.</span>
+</p>
+
+<p>That's it for this step! We'll finish this feature on the next step.</p>
+
+<p><strong>NOTE: Close the console tab on JSBin when you're done.</strong> We no longer need it.</p>
+
+<h2>Step 6: Implementing State (10 - 15 minutes)</h2>
+
+<p>I'll now explain one of the biggest differences between jQuery-style code and React.js-style code.</p>
+
+<p>In jQuery, when some event happens, you usually change the DOM (like we did earlier):</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/jquery-style-1.png" alt=""></p>
+
+<p>In React, <strong>you don't directly modify the DOM</strong>. Instead, in an event handler, you modify something called <strong>the "state"</strong>. And this is done by calling <code>this.setState</code>.</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/react-style-1.png" alt=""></p>
+
+<p>Then, every time the state is updated, <strong><code>render()</code> is called again</strong>. And <strong>inside <code>render()</code> you can access the state</strong>.</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/react-style-2.png" alt=""></p>
+
+<p>This is how you update the UI in response to an event. Yes it's confusing, so let me explain using code.</p>
+
+<h3>Writing the Event Handler</h3>
+
+<p><strong>Start with the JSBin from the previous step.</strong> First, we need to <strong>initialize the state object</strong> - without this, nothing will work.</p>
+
+<p>To do this, <strong>we need to write a special method called <code>getInitialState</code> and have it return a JS object</strong>, which becomes the initial state.</p>
+
+<p>What goes in the object? <strong>Let's create a single key called <code>text</code></strong> and have it store whatever is inside the Tweet box.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">var TweetBox = React.createClass({
+  getInitialState: function() {
+    return {
+      text: ""
+    };
+  },
+  handleChange: ...
+  render: ...
+});
+</code></pre></div>
+<p><strong>Next, we'll modify the event handler</strong> to set the state's <code>text</code> field to whatever is currently in the text box. To do this, <strong>we use a special in method called <code>setState</code> and pass the updated key-value pair.</strong></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">handleChange: function(event) {
+  this.setState({ text: event.target.value });
+},
+</code></pre></div>
+<p>Now, let's check that the state is correctly being set by writing some debug-only code in <code>render()</code>.</p>
+
+<p>To do this, <strong>simply add <code>this.state.text</code> near the end of <code>render()</code>, and use the <code>{ ... }</code> syntax</strong> to call JS code inside the HTML syntax part of JSX.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">render: function() {
+  return (
+    &lt;div ...&gt;
+      ...
+      &lt;button ...&gt;Tweet&lt;/button&gt;
+
+      &lt;br/&gt;
+      {this.state.text}
+    &lt;/div&gt;
+  )
+}
+</code></pre></div>
+<p><strong>Now, try entering some text on the tweet box.</strong> The same set of text should appear below the button.</p>
+
+<p>You can try it out on the JSBin below as well:</p>
+
+<p class="jsbin-wrapper">
+  <iframe class="" id="" data-url="http://jsbin.com/yabiqo/2/embed?js,output" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/embed-holding.html" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe>
+  <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/yabiqo/2/edit">Click here</a>.</span>
+</p>
+
+<p>Now the previous diagram might make more sense to you.</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/react-style-2.png" alt=""></p>
+
+<h3>Remove the Debugging Code</h3>
+
+<p>Once you confirm that the state is correctly being set, <strong>remove the debugging code we just added:</strong></p>
+
+<div class="highlight"><pre><code style="text-decoration: line-through">&lt;br/&gt;
+{this.state.text}
+</code></pre></div>
+
+<h3>Enabling/Disabling the Button</h3>
+
+<p>Now that we can watch for the text changes, all that's left is to enable/disable the button depending on whether the text is entered.</p>
+
+<p>Using the state, we can use this logic:</p>
+
+<ul>
+<li>If <code>this.state.text.length === 0</code>, then the button should be disabled.</li>
+</ul>
+
+<p>To do this in React, <strong>add <code>disabled</code> attribute, and set it with the return value of <code>this.state.text.length === 0</code></strong>. Since this is JS code, you need to wrap it with <code>{}</code>.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;button className="btn btn-primary pull-right"
+        disabled={this.state.text.length === 0}&gt;Tweet&lt;/button&gt;
+</code></pre></div>
+<p>If you write <code>disabled="true"</code> or <code>disabled="false"</code> in raw HTML it won't work - in raw HTML, you need to remove the <code>disabled</code> attribute to enable the button. But React is <strong>not</strong> raw HTML - it does the following magic behind the scenes:</p>
+
+<ul>
+<li>If you do <code>disabled={true}</code> in JSX, it gets converted to just <code>&lt;button ... disabled&gt;</code> in HTML.</li>
+<li>If you do <code>disabled={false}</code> in JSX, the <code>disabled</code> attribute is removed from the <code>button</code> tag in HTML.</li>
+</ul>
+
+<p>This works with other boolean attributes like <code>checked</code>. This is not officially documented as of writing, but it should be included soon.</p>
+
+<p>The resulting JSBin is here:</p>
+
+<p class="jsbin-wrapper">
+  <iframe class="" id="" data-url="http://jsbin.com/lutefu/3/embed?js,output" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/embed-holding.html" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe>
+  <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/lutefu/3/edit">Click here</a>.</span>
+</p>
+
+<h3>Reflections</h3>
+
+<p>Again, keep this difference between jQuery and React in mind before moving onto the next step:</p>
+
+<ul>
+<li>In jQuery, you write event handlers which modify the <strong>DOM</strong>.</li>
+<li>In React.js, you write event handlers which modify the <strong>state</strong>. And you write <code>render()</code> to reflect the current state.</li>
+</ul>
+
+<h2>Step 7: Remaining Character Count in jQuery (5 minutes)</h2>
+
+<p>The next feature we'll implement is the remaining character count.</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/tweet-box-character-count.png" alt=""></p>
+
+<p>Here's the spec:</p>
+
+<ul>
+<li>The character count will display <code>140 - the number of characters entered</code>.</li>
+</ul>
+
+<p><strong>We'll first implement this in jQuery, then in React.</strong></p>
+
+<p>We'll start with our previous jQuery implementation. We'll put our React.js code on hold. <strong>From now on, I will give you new code to start with at the beginning of each chapter</strong>, as we alternate between jQuery and React. That means after you're done with each step, you can play with the code before moving to the next step.</p>
+
+<div class="message"><strong>✔ Click "Save" below</strong> to copy the code to your JSBin and get started.</div>
+
+<p class="jsbin-wrapper">
+  <iframe class="" id="" data-url="http://jsbin.com/wewimu/3/embed?html,js" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/embed-holding.html" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe>
+  <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/wewimu/3/edit">Click here</a>.</span>
+</p>
+
+<p>First, <strong>add character count in HTML using <code>span</code></strong>. Let's set it as <code>span</code>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;textarea ...&gt;&lt;/textarea&gt;&lt;br&gt;
+&lt;span&gt;140&lt;/span&gt;
+&lt;button ...&gt;Tweet&lt;/button&gt;
+</code></pre></div>
+<p>And <strong>inside the <code>input</code> handler in JS, add this code to update the character count</strong>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$("textarea").on("input", function() {
+  $("span").text(140 - $(this).val().length);
+  ...
+});
+</code></pre></div>
+<p>That's it! <strong>Try typing in the Tweet box</strong> and you'll see the character count update. Here's the JSBin:</p>
+
+<p class="jsbin-wrapper">
+  <iframe class="" id="" data-url="http://jsbin.com/durima/2/embed?js,output" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/embed-holding.html" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe>
+  <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/durima/2/edit">Click here</a>.</span>
+</p>
+
+<h2>Step 8: Remaining Character Count in React.js (5 minutes)</h2>
+
+<p>How about in React? You should try doing this on your own. Start with our previous React implementation.</p>
+
+<div class="message"><strong>✔ Click "Save" below</strong> to copy the code to your JSBin and get started.</div>
+
+<p class="jsbin-wrapper">
+  <iframe class="" id="" data-url="http://jsbin.com/lutefu/3/embed?html,js" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/embed-holding.html" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe>
+  <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/lutefu/3/edit">Click here</a>.</span>
+</p>
+
+<p>(<strong>Tip</strong>: Since you won't be touching HTML in React, <strong>you can close the HTML tab on JSBin</strong> so you can get more screen space).</p>
+
+<p><strong>Hint</strong>:</p>
+
+<ul>
+<li>No need to change <code>getInitialState()</code> or <code>handleChange()</code></li>
+<li>Use <code>this.state.text.length</code> in <code>render()</code>.</li>
+</ul>
+
+<h3>Answer:</h3>
+
+<p><strong>Add this after <code>&lt;br/&gt;</code> in <code>render()</code></strong>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;span&gt;{140 - this.state.text.length}&lt;/span&gt;
+</code></pre></div>
+<p>Here's the JSBin:</p>
+
+<p class="jsbin-wrapper">
+  <iframe class="" id="" data-url="http://jsbin.com/lizoco/3/embed?js,output" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/embed-holding.html" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe>
+  <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/lizoco/3/edit">Click here</a>.</span>
+</p>
+
+<p>Too easy? Not sure why React.js is so much better than jQuery? Well, the next step has more complexity, and this is when React.js really shines.</p>
+
+<h2>Step 9: The "Add Photo" Button (5 minutes)</h2>
+
+<p>For our next feature, we'll add an "Add Photo" button to the UI. This is when things get tricky.</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/tweet-box-add-photo.png" alt=""></p>
+
+<p>However, <strong>we will not actually let users upload photos.</strong> Instead, here's what we're going to do.</p>
+
+<p>When you upload a photo on Twitter, it counts against the number of characters you can use. On my attempt, it decreased the number of remaining characters from 140 to 117:</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/tweet-box-add-photo-explanation.png" alt=""></p>
+
+<p>So that's what we're going to do. Here's the spec:</p>
+
+<ul>
+<li>Create an "Add Photo" button.</li>
+<li>Clicking this button toggles the ON/OFF state. <strong>If it's ON, the button will say <code>✓ Photo Added</code>.</strong></li>
+<li>If this button is ON, <strong>the number of available characters decreases by 23.</strong></li>
+<li>Also, if this button is ON, <strong>even if there's no text entered, the "Tweet" button remains enabled.</strong></li>
+</ul>
+
+<p>Here's the demo JSBin. <strong>Try clicking the "Add Photo" button</strong> and see what happens to the character count and the Tweet button.</p>
+
+<p><iframe class="" id="" data-url="http://jsbin.com/sanuqi/2/embed?output" src="about:blank" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe> <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/sanuqi/2/edit">Click here</a>.</span></p>
+
+<p>Let's implement this. We'll first try with jQuery.</p>
+
+<h2>Step 10: The "Add Photo" Button, in jQuery (15 - 20 minutes)</h2>
+
+<p>Start with our previous jQuery implementation.</p>
+
+<p></p><div class="message"><strong>✔ Click "Save" below</strong> to copy the code to your JSBin and get started.</div><p></p>
+
+<p class="jsbin-wrapper">
+  <iframe class="" id="" data-url="http://jsbin.com/durima/2/embed?js,output" src="about:blank" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe>
+  <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/durima/2/edit">Click here</a>.</span>
+</p>
+
+<p>We'll modify both the HTML and JS. Before, we were attaching a handler to <code>$("button")</code>, but this won't work if there are two buttons. <strong>So let's modify the HTML like this</strong>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">...
+&lt;button class="js-tweet-button btn btn-primary pull-right" disabled&gt;Tweet&lt;/button&gt;
+&lt;button class="js-add-photo-button btn btn-default pull-right"&gt;Add Photo&lt;/button&gt;
+...
+</code></pre></div>
+<p>Here are the changes:</p>
+
+<ul>
+<li><strong>Added the second button</strong> called "Add Photo".</li>
+<li><strong>Added classes <code>js-tweet-button</code> and <code>js-add-photo-button</code> to each button</strong>. They're prefixed with <code>js-</code> because they are used only in JS and not in CSS.</li>
+<li><strong>Added the <code>disabled</code> attribute to the Tweet button</strong> so I don't have to do this in JS.</li>
+</ul>
+
+<p><strong>Next, rewrite the entire JS file like this:</strong></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$("textarea").on("input", function() {
+  $("span").text(140 - $(this).val().length);
+
+  if ($(this).val().length &gt; 0) {
+    $(".js-tweet-button").prop("disabled", false);
+  } else {
+    $(".js-tweet-button").prop("disabled", true);
+  }
+});
+</code></pre></div>
+<p>Here are the changes:</p>
+
+<ul>
+<li><strong>(Important) Removed <code>$("button").prop("disabled", true);</code> from the first line</strong> because I added <code>disabled</code> attribute to the Tweet button,</li>
+<li><strong>Replaced <code>$("button")</code> with <code>$(".js-tweet-button")</code></strong> so it can be distinguished from <code>.js-add-photo-button</code>.</li>
+</ul>
+
+<h3>Adding the Button</h3>
+
+<p>Next, we'll implement one of the features:</p>
+
+<ul>
+<li>Clicking the "Add Photo" button toggles the ON/OFF state. <strong>If it's ON, the button will say <code>✓ Photo Added</code>.</strong></li>
+</ul>
+
+<p>To do this, <strong>let's add this piece of code</strong>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$("textarea").on("input", function() {
+  ...
+});
+
+$(".js-add-photo-button").on("click", function() {
+  if ($(this).hasClass("is-on")) {
+    $(this)
+      .removeClass("is-on")
+      .text("Add Photo");
+  } else {
+    $(this)
+      .addClass("is-on")
+      .text("✓ Photo Added");
+  }
+});
+</code></pre></div>
+<p>We use the class <code>is-on</code> to keep track of the state. <strong>Check to see that this works</strong> by clicking the "Add Photo" button multiple times and seeing the text alternate.</p>
+
+<h3>Decrement Character Count</h3>
+
+<p>Next, we'll implement this feature:</p>
+
+<ul>
+<li>If the "Add Photo" button is ON, <strong>the number of available characters decreases by 23.</strong></li>
+</ul>
+
+<p>To do this, <strong>modify the click handler we just added like this</strong>.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">if ($(this).hasClass("is-on")) {
+  $(this)
+    .removeClass("is-on")
+    .text("Add Photo");
+  $("span").text(140 - $("textarea").val().length);
+} else {
+  $(this)
+    .addClass("is-on")
+    .text("✓ Photo Added");
+  $("span").text(140 - 23 - $("textarea").val().length);
+}
+</code></pre></div>
+<p>We change <code>span</code>'s text on every click. If the button becomes ON, then we need to subtract the text length from 117, which is <code>140 - 23</code>. We use <code>140 - 23</code> for clarity now - eventually we should use constants.</p>
+
+<p><strong>Check to see that this works</strong> by clicking the "Add Photo" button.</p>
+
+<h3>Fixing the Input Handler</h3>
+
+<p>This is not complete however - <strong>if you have the "Add Photo" button ON and start typing on the text area, the remaining character count goes out of sync.</strong></p>
+
+<p>To fix this, <strong>we also need to update the input handler for <code>textarea</code></strong>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$("textarea").on("input", function() {
+  if ($(".js-add-photo-button").hasClass("is-on")) {
+    $("span").text(140 - 23 - $(this).val().length);
+  } else {
+    $("span").text(140 - $(this).val().length);
+  }
+
+  if (...) {
+    ...
+});
+</code></pre></div>
+<p><strong>Check to see that this works</strong> by clicking the "Add Photo" button and typing some text.</p>
+
+<h3>I know this is taking some time...</h3>
+
+<p>But stick with it! The jQuery code here is <em>supposed</em> to be confusing, so don't worry!</p>
+
+<h3>Implement the Final Feature</h3>
+
+<p>The last feature we need to implement is this:</p>
+
+<ul>
+<li>If the "Add Photo" button is ON, <strong>even if there's no text entered, the "Tweet" button remains enabled.</strong></li>
+</ul>
+
+<p>To do this, <strong>we need to modify the click handler of the "Add Photo" button:</strong></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$(".js-add-photo-button").on("click", function() {
+  if ($(this).hasClass("is-on")) {
+    ...
+    if ($("textarea").val().length === 0) {
+      $(".js-tweet-button").prop("disabled", true);
+    }
+  } else {
+    ...
+    $(".js-tweet-button").prop("disabled", false);
+  }
+});
+</code></pre></div>
+<p>Here's the explanation:</p>
+
+<ul>
+<li>If the "Add Photo" button is going from ON to OFF (<code>if</code> clause), we need to check if there's no text entered and if so, disable the "Tweet" button.</li>
+<li>If the "Add Photo" button is going from OFF to ON (<code>else</code> clause), we always enable the "Tweet" button.</li>
+</ul>
+
+<h3>But again, this is broken</h3>
+
+<p><strong>We're not done yet</strong>. The following steps will break the code. <strong>Try it out yourself</strong>:</p>
+
+<ul>
+<li>Turn on the "Add Photo" button.</li>
+<li>Type some text.</li>
+<li>Delete all of the text.</li>
+<li>The "Tweet" button should still be enabled because the "Add Photo" button is ON, but this isn't the case.</li>
+</ul>
+
+<p>This means that our input handler for <code>textarea</code> is missing some logic. To fix this, <strong>we need to add another condition to the <code>if</code> statement in the input handler</strong>.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$("textarea").on("input", function() {
+  ...
+  if ($(this).val().length &gt; 0 || $(".js-add-photo-button").hasClass("is-on")) {
+    ...
+  } else {
+    ...
+  }
+});
+</code></pre></div>
+<p>We add the following check to whether or not the button should be disabled:</p>
+
+<ul>
+<li>When the text changes, if the "Add Photo" button is ON, do not disable the button.</li>
+</ul>
+
+<p><strong>Try the above steps again</strong> and this time it won't break.</p>
+
+<h2>Step 11: Reflection on the jQuery Code - Why So Confusing? (5 minutes)</h2>
+
+<p>Here's the final HTML and JS code from the previous step:</p>
+
+<p class="jsbin-wrapper">
+  <iframe class="" id="" data-url="http://jsbin.com/xupice/2/embed?html,js" src="about:blank" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe>
+  <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/xupice/2/edit">Click here</a>.</span>
+</p>
+
+<p><strong>Take a look at the jQuery code once again</strong>. It's very confusing. If you're keeping the code as-is, you'll probably need some comments so you remember what you did. There are clear signs of duplication, but you have to think a bit on how to refactor.</p>
+
+<p>The question is: <strong>why did it get so ugly so fast?</strong></p>
+
+<p>And the answer has to do with the <strong>"jQuery style"</strong> of code we talked about previously. Recall this diagram:</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/jquery-style-1.png" alt=""></p>
+
+<p>This is simple when there are only 1 event handler and 1 DOM. However, like we just saw, <strong>if several event handlers are modifying several parts of the DOM, the code gets ugly.</strong></p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/jquery-style-2.png" alt=""></p>
+
+<p>Imagine adding some more features that could influence both the character limit and the "Tweet" button state. The above diagram will have even more arrows. And the code would become unmanageable.</p>
+
+<p>You can, in theory, mitigate this by refactoring into reusable functions. But you'd still have to think hard about it every time you add something new. (Update: Someone from Hacker News sent me the <a href="http://pastebin.com/wbGZZs7U">refactored jQuery code</a>. Very clean but again, it requires some thinking.)</p>
+
+<p>Now, let's see how it's like to do the same thing in React. <strong>Hint: It's going to be much simpler.</strong></p>
+
+<h2>Step 12: The "Add Photo" Button, in React (10-20 minutes)</h2>
+
+<p>Start with our previous React implementation.</p>
+
+<p></p><div class="message"><strong>✔ Click "Save" below</strong> to copy the code to your JSBin and get started.</div><p></p>
+
+<p class="jsbin-wrapper">
+  <iframe class="" id="" data-url="http://jsbin.com/lizoco/3/embed?js,output" src="about:blank" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe>
+  <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/lizoco/3/edit">Click here</a>.</span>
+</p>
+
+<p>(<strong>Tip</strong>: Since you won't be touching HTML in React, <strong>you can close the HTML tab on JSBin</strong> so you can get more screen space).</p>
+
+<h3>Adding the Button</h3>
+
+<p>First, let's add the "Add Photo" button. <strong>Modify the JSX</strong>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;button ...&gt;Tweet&lt;/button&gt;
+&lt;button className="btn btn-default pull-right"&gt;Add Photo&lt;/button&gt;
+</code></pre></div>
+<p>Now, <strong>let's add a click handler</strong> to this button so that the text changes from <code>Add Photo</code> to <code>✓ Photo Added</code>. Recall the React style of writing code:</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/react-style-2.png" alt=""></p>
+
+<p>We will:</p>
+
+<ol>
+<li><strong>Create a state variable</strong> that keeps track of whether the "Add Photo" button is ON or OFF.</li>
+<li><strong>Use the state</strong> on <code>render()</code> to decide whether to show <code>Add Photo</code> or <code>✓ Photo Added</code>.</li>
+<li><strong>Modify the state</strong> on the click handler.</li>
+</ol>
+
+<p>For (1), <strong>we'll modify <code>getInitialState</code></strong> and add a key-value pair in the state to keep track of whether the photo is added or not:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">getInitialState: function() {
+  return {
+    text: "",
+    photoAdded: false
+  };
+},
+</code></pre></div>
+<p>For (2), <strong>we'll modify the JSX markup</strong> for the "Add Photo" button. We'll have the button say "Photo Added" if <code>this.state.photoAdded</code> is true. We can just use a ternary expression here.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;button className="btn btn-default pull-right"&gt;
+  {this.state.photoAdded ? "✓ Photo Added" : "Add Photo" }
+&lt;/button&gt;
+</code></pre></div>
+<p>Finally, for (3), <strong>we'll attach a click handler on JSX</strong> like we did for <code>textarea</code>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;button className="btn btn-default pull-right"
+  onClick={this.togglePhoto}&gt;
+  {this.state.photoAdded ? "✓ Photo Added" : "Add Photo" }
+&lt;/button&gt;
+</code></pre></div>
+<p>And <strong>add a handler method which reverses <code>this.state.photoAdded</code></strong>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">togglePhoto: function(event) {
+  this.setState({ photoAdded: !this.state.photoAdded });
+},
+</code></pre></div>
+<p>Now, clicking on <code>Add Photo</code> should toggle the text. <strong>Try it out yourself</strong>.</p>
+
+<h3>Decrement Character Count</h3>
+
+<p>We'll now implement the next feature:</p>
+
+<ul>
+<li>If the "Add Photo" button is ON, <strong>the number of available characters decreases by 23.</strong></li>
+</ul>
+
+<p>Currently, the number of available characters is displayed as follows in <code>render()</code>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;span&gt;{140 - this.state.text.length}&lt;/span&gt;
+</code></pre></div>
+<p>This will now also depend on <code>this.state.photoAdded</code>, so we need an <code>if</code> and <code>else</code> here.</p>
+
+<p>However, <strong>in JSX, you can't write <code>if</code> or <code>else</code> inside <code>{ ... }</code></strong>. You can use a ternary expression (<code>a ? b : c</code>) like we did before, but that would be pretty long in this case.</p>
+
+<p>Usually the simplest way in this situation is to refactor a conditional into a method. Let's try it.</p>
+
+<p><strong>First, modify the above code to use a method, like this</strong>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;span&gt;{ this.remainingCharacters() }&lt;/span&gt;
+</code></pre></div>
+<p><strong>And define the method like this:</strong></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">remainingCharacters: function() {
+  if (this.state.photoAdded) {
+    return 140 - 23 - this.state.text.length;
+  } else {
+    return 140 - this.state.text.length;
+  }
+},
+</code></pre></div>
+<p>Now, the remaining character count should update accordingly when the "Add Photo" button is toggled.</p>
+
+<p><strong>Question</strong>: In <code>render()</code>, why does <code>{ this.remainingCharacters() }</code> have <code>()</code> but <code>{ this.handleChange }</code> and <code>{ this.togglePhoto }</code> don't?</p>
+
+<p>Good question. Let's take a look at <code>render()</code> again:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">render: function() {
+  return (
+    ...
+      &lt;textarea className="..."
+                onChange={ this.handleChange }&gt;&lt;/textarea&gt;
+      ...
+      &lt;span&gt;{ this.remainingCharacters() }&lt;/span&gt;
+      ...
+      &lt;button className="..."
+        onClick={ this.togglePhoto }&gt;
+        ...
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+</code></pre></div>
+<p><strong>Answer</strong>:</p>
+
+<ul>
+<li>We've written <code>remainingCharacters()</code> method to <strong>return a number</strong>. We need to get this number and put it in between <code>&lt;span&gt;&lt;/span&gt;</code>, so we need to <strong>call</strong> <code>remainingCharacters()</code> method by using <code>()</code>. That's why there's <code>()</code> in <code>remainingCharacters()</code>.</li>
+<li>On the other hand, <code>handleChange</code> and <code>togglePhoto</code> are <strong>event handlers</strong>. We want these methods to be called only when the user interacts with the UI (changing the text or clicking the button). To do so, in <code>render()</code>, we need to write them without <code>()</code> and assign them to attributes like <code>onChange</code> and <code>onClick</code>.</li>
+</ul>
+
+<h3>The "Tweet" Button's States</h3>
+
+<p>We've got one more feature to implement:</p>
+
+<ul>
+<li>If the "Add Photo" button is ON, <strong>even if there's no text entered, the "Tweet" button remains enabled.</strong></li>
+</ul>
+
+<p>This is actually really easy to do. Previously, the Tweet button's <code>disabled</code> option was set as:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;button ... disabled={this.state.text.length === 0}&gt;...&lt;/button&gt;
+</code></pre></div>
+<p>In other words, the button was disabled if the text's length was 0. <strong>Now, the button is disabled if</strong>:</p>
+
+<ul>
+<li>The text's length is 0, <strong>and</strong>:</li>
+<li>The "Add Photo" button is OFF.</li>
+</ul>
+
+<p>So the logic becomes like this:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;button ... disabled={this.state.text.length === 0 &amp;&amp; !this.state.photoAdded}&gt;...&lt;/button&gt;
+</code></pre></div>
+<p>Or, you can simplify the above code by utilizing <code>remainingCharacters()</code>. If there are 140 characters remaining, that means no text is entered, so the button should be disabled.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;button ... disabled={this.remainingCharacters() === 140}&gt;...&lt;/button&gt;
+</code></pre></div>
+<p>That's it! Try toggling the "Add Photo" button and check that the "Tweet Button" is enabled/disabled correctly.</p>
+
+<h3>We're Done!</h3>
+
+<p>That was easy. Here's the resulting JSBin:</p>
+
+<p class="jsbin-wrapper">
+  <iframe class="" id="" data-url="http://jsbin.com/fitiha/2/embed?js,output" src="about:blank" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe>
+  <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/fitiha/2/edit">Click here</a>.</span>
+</p>
+
+<h2>Step 13: Reflection on the React Code - Why So Simple? (5 minutes)</h2>
+
+<p>The changes to accommodate the "Add Photo" button were minimal when using React. No refactoring needed. Why is this the case?</p>
+
+<p>Again, it has to do with React's style of writing UI code. In React, event handlers modify the "state", and whenever the state is modified, React automatically calls <code>render()</code> again to update the UI.</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/react-style-2.png" alt=""></p>
+
+<p>In this particular example, the diagram now looks like this:</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/react-style-3.png" alt=""></p>
+
+<p>The state becomes an intermediary thing which sits in between the event handlers and <code>render()</code>:</p>
+
+<ul>
+<li>Event handlers don't need to worry about which part of the DOM changes. They just need to set the state.</li>
+<li>Similarly, when you write <code>render()</code>, all you need to worry about is what the current <code>state</code> is.</li>
+</ul>
+
+<h3>Compare with jQuery</h3>
+
+<p>You can imagine what would happen as the UI gets more features. Without the intermediary "state", we'd have a tough time managing complexity. This is why you'd want to use React over jQuery for complex UIs.</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/jquery-style-vs-react-style.png" alt=""></p>
+
+<p>Again, <strong>it's possible</strong> to write clean jQuery code that doesn't look like spaghetti. But you have to come up with the code structure yourself and think about how to refactor every time you add a new feature. React provides you this structure and reduces your cognitive load.</p>
+
+<h2>Step 14: The Final Feature - Highlighting Overflown Characters (5 minutes)</h2>
+
+<p>The last feature we're going to implement is <strong>highlighting characters that are over the limit</strong>.</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/overflow-highlight.png" alt=""></p>
+
+<p>Unfortunately, <strong>we're not going to highlight the actual text inside the Tweet box</strong>, because that would require us to change <code>textarea</code> to <code>contenteditable</code>, and <code>contenteditable</code> is a bit too complicated for illustrative purposes.</p>
+
+<p>Instead, <strong>we'll be displaying an alert box</strong> on top and indicate which characters need to be deleted, like this:</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/overflow-highlight-alert.png" alt=""></p>
+
+<p><strong>To try it out, copy the following quote by Steve Jobs:</strong></p>
+
+<blockquote>
+<p>If you haven't found it yet, keep looking. Don't settle. As with all matters of the heart, you'll know when you find it. And, like any great relationship, it just gets better and better as the years roll on.</p>
+</blockquote>
+
+<p><strong>And paste it into the Tweet box below:</strong></p>
+
+<p><iframe class="" id="" data-url="http://jsbin.com/kuveba/3/embed?output" src="about:blank" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe> <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/kuveba/3/edit">Click here</a>.</span></p>
+
+<ul>
+<li>It should show an alert box with the overflown characters highlighted in red</li>
+<li>It should also show 10 characters before the cutoff point, without any highlighting.</li>
+</ul>
+
+<p>If we were to implement this in jQuery, our code will be even messier. Notice in the diagram that we'll be adding two more arrows for one new feature.</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/jquery-style-3.png" alt=""></p>
+
+<p><strong>So we're not going to implement this in jQuery</strong>. We'll just do it in React and call it a day. It'd be pretty simple to do in React - just one extra arrow on the diagram:</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/react-style-4.png" alt=""></p>
+
+<h2>Step 15: Highlighting Overflown Characters in React (10 - 15 minutes)</h2>
+
+<p>Start with our previous React implementation.</p>
+
+<div class="message"><strong>✔ Click "Save" below</strong> to copy the code to your JSBin and get started.</div>
+
+<p class="jsbin-wrapper">
+  <iframe class="" id="" data-url="http://jsbin.com/fitiha/2/embed?js,output" src="about:blank" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe>
+  <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/fitiha/2/edit">Click here</a>.</span>
+</p>
+
+<p>We'll do this step by step. First, <strong>we'll display a simple alert when you write past the limit.</strong> The alert will have some static text.</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/overflow-highlight-react-1.png" alt=""></p>
+
+<p>Since this will require a conditional, let's write it in a separate method. <strong>Add <code>{ this.overflowAlert() }</code> in front of the text box:</strong></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">{ this.overflowAlert() }
+&lt;textarea className="form-control"
+          onChange={this.handleChange}&gt;&lt;/textarea&gt;
+</code></pre></div>
+<p>Now, this method should return:</p>
+
+<ul>
+<li><strong>A div tag</strong> for the alert box if there are no more characters left.</li>
+<li><strong>Nothing</strong> (i.e. empty text) otherwise.</li>
+</ul>
+
+<p>It turns out that in React, <strong>you can return JSX markup from a method and use this in some other method</strong>, everything will just work. In other words, you can do something like:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">someMethod: function() {
+  return (
+    &lt;a href="#"&gt;Hello World&lt;/a&gt;
+  );
+},
+someMethod2: function() {
+  return (
+    &lt;h1&gt;
+      { this.someMethod() }
+    &lt;/h1&gt;
+  );
+},
+</code></pre></div>
+<p>In our case, we can return <code>( &lt;div&gt; ... &lt;/div&gt; )</code> on one condition, and nothing on the other. <strong>So our <code>overflowAlert</code> method will look like this:</strong></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">overflowAlert: function() {
+  if (this.remainingCharacters() &lt; 0) {
+    return (
+      &lt;div className="alert alert-warning"&gt;
+        &lt;strong&gt;Oops! Too Long:&lt;/strong&gt;
+      &lt;/div&gt;
+    );
+  } else {
+    return "";
+  }
+},
+</code></pre></div>
+<p>Notice that we're checking <code>this.remainingCharacters()</code> to see if we should show the alert or not.</p>
+
+<p><strong>Try this out by typing 140+ characters (or 117+ characters with the "Add Photo" button ON).</strong> It should show the alert.</p>
+
+<h3>Displaying Overflown Characters</h3>
+
+<p>Here's the breakdown of what goes inside the alert message:</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/overflow-highlight-react-2.png" alt=""></p>
+
+<ul>
+<li>Between "Oops! Too Long:" and the actual text, there's an empty single space followed by three dots. I used <code>&amp;nbsp;</code> here because when writing markup in React, white spaces between tags get removed.</li>
+<li>Then there are the 131st~140th (total of 10) characters of <code>this.state.text</code>.</li>
+<li>Then there are the remaining characters highlighted in red.</li>
+</ul>
+
+<p><strong>Let's write this in JSX. Inside the <code>if</code> clause of <code>overflowAlert</code>, we'll create two variables: <code>beforeOverflowText</code> and <code>overflowText</code>. We'll use <code>.substring()</code> method on <code>this.state.text</code>.</strong></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">if (this.remainingCharacters() &lt; 0) {
+  var beforeOverflowText = this.state.text.substring(140 - 10, 140);
+  var overflowText = this.state.text.substring(140);
+
+  return (
+    &lt;div className="alert alert-warning"&gt;
+      &lt;strong&gt;Oops! Too Long:&lt;/strong&gt;
+      &amp;nbsp;...{beforeOverflowText}
+      &lt;strong className="bg-danger"&gt;{overflowText}&lt;/strong&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre></div>
+<ul>
+<li>If you do <code>.substring(a, b)</code>, it will return <code>a + 1</code>th through <code>b</code>th characters from the string.</li>
+<li>If you do <code>.substring(a)</code>, it will return <code>a + 1</code>th through last characters from the string.</li>
+<li>We use Bootstrap's <code>bg-danger</code> class to highlight the text in red.</li>
+</ul>
+
+<p>Copy paste this text again and see that the correct texts are highlighted. We're almost done!</p>
+
+<blockquote>
+<p>If you haven't found it yet, keep looking. Don't settle. As with all matters of the heart, you'll know when you find it. And, like any great relationship, it just gets better and better as the years roll on.</p>
+</blockquote>
+
+<h3>What if the "Add Photo" button is ON?</h3>
+
+<p>If the "Add Photo" button is ON then the character limit decreases by 23. <strong>So our <code>beforeOverflowText</code> and <code>overflowText</code> need to take that into account:</strong></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">if (this.state.photoAdded) {
+  var beforeOverflowText = this.state.text.substring(140 - 23 - 10, 140 - 23);
+  var overflowText = this.state.text.substring(140 - 23);
+} else {
+  var beforeOverflowText = this.state.text.substring(140 - 10, 140);
+  var overflowText = this.state.text.substring(140);
+}
+</code></pre></div>
+<p>Now, try toggling the "Add Photo" button while entering any text that's longer than the limit. It should work correctly. Here's the JSBin:</p>
+
+<p class="jsbin-wrapper">
+  <iframe class="" id="" data-url="http://jsbin.com/kuveba/3/embed?js,output" src="about:blank" style="border: 1px solid rgb(170, 170, 170); width: 100%; min-height: 300px;"></iframe>
+  <span class="jsbin-not-loading-msg">JSBin not loading? <a target="_blank" href="http://jsbin.com/kuveba/3/edit">Click here</a>.</span>
+</p>
+
+<p>That's it! Again, you can see that the code changes were simple:</p>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/react-style-4.png" alt=""></p>
+
+<h2>Step 16: What's Next? (5 minutes)</h2>
+
+<p>This concludes my tutorial. Hopefully you learned:</p>
+
+<ul>
+<li>The difference between jQuery code v.s. React code, and</li>
+<li>How to write some basic React code in JSX.</li>
+</ul>
+
+<p><img src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/jquery-style-vs-react-style.png" alt=""></p>
+
+<p>What's next? Well, I only covered one of the greatest features of React. The next thing you should learn is:</p>
+
+<ul>
+<li>How to compose React components, and</li>
+<li><code>props</code>, which is more widely used than <code>state</code>.</li>
+</ul>
+
+<p>Fortunately, <a href="https://facebook.github.io/react/docs/tutorial.html">the official React tutorial</a> is pretty good at explaining this. It might be pretty challenging if you don't know JS too well though.</p>
+
+<p>If you like videos, try egghead.io's React videos. I recommend the <a href="https://egghead.io/series/build-your-first-react-js-application">Build Your First React.js App</a> series.</p>
+
+<p>Thanks for reading, and if you have any feedback/questions, shoot me an email at <a href="mailto:shu@chibicode.com">shu@chibicode.com</a> or a tweet at <a href="http://twitter.com/chibicode">@chibicode</a>.</p>
+
+<p>Also, thanks to my colleagues <a href="https://twitter.com/Brrr80/status/618897522505838592">Brady Fukumoto</a> for reading a draft version of this post and <a href="https://www.linkedin.com/in/gregoryb">Greg Becker</a> for providing me extensive feedback.</p>
+
+<h3>Sign up to be notified when I publish more tutorials!</h3>
+
+<div id="mc_embed_signup"> <form action="http://chibicode.us2.list-manage.com/subscribe/post?u=5837b6e89a84faa418fd21987&id=301e4401e8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate=""> <div id="mc_embed_signup_scroll"> <div class="indicates-required"><span class="asterisk">*</span> indicates required</div> <div class="mc-field-group"> <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span> </label> <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==); background-attachment: scroll; background-position: 100% 50%; background-repeat: no-repeat;"> </div> <div class="mc-field-group"> <label for="mce-TWITTER">Twitter Username </label> <input type="text" value="" name="TWITTER" class="" id="mce-TWITTER"> </div> <div id="mce-responses" class="clear"> <div class="response" id="mce-error-response" style="display:none"></div> <div class="response" id="mce-success-response" style="display:none"></div> </div> <div style="position: absolute; left: -5000px;"><input type="text" name="b_5837b6e89a84faa418fd21987_301e4401e8" tabindex="-1" value=""></div> <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div> </div> </form> </div>
+
+<h3>Like This Tutorial? Please Tweet / Follow :)</h3>
+
+<p><iframe id="twitter-widget-1" scrolling="no" frameborder="0" allowtransparency="true" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/tweet_button.9b77a1cb4bd14da06dfa5e2f65422c91.en(1).html" class="twitter-share-button twitter-tweet-button twitter-share-button twitter-count-horizontal" title="Twitter Tweet Button" data-twttr-rendered="true" style="position: static; visibility: visible; width: 127px; height: 28px;"></iframe> <iframe id="twitter-widget-2" scrolling="no" frameborder="0" allowtransparency="true" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/follow_button.36a0bf81ff285eb6cad31df608651a2f.en.html" class="twitter-follow-button twitter-follow-button" title="Twitter Follow Button" data-twttr-rendered="true" style="position: static; visibility: visible; width: 174px; height: 28px;"></iframe></p>
+
+<p>I'll publish more tutorials like this soon - follow me to get notified :)</p>
+
+<h3>...or Retweet :)</h3>
+
+<p><strong>Official Account</strong>:</p>
+
+<iframe id="twitter-widget-4" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-tweet twitter-tweet-rendered" allowfullscreen="" style="border: none; max-width: 100%; min-width: 220px; margin: 10px 0px; padding: 0px; display: block; position: static; visibility: visible; width: 500px;" title="Twitter Tweet" height="225"></iframe>
+
+<p><strong>The Author</strong>:</p>
+
+<iframe id="twitter-widget-5" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-tweet twitter-tweet-rendered" allowfullscreen="" style="border: none; max-width: 100%; min-width: 220px; margin: 10px 0px; padding: 0px; display: block; position: static; visibility: visible; width: 500px;" title="Twitter Tweet" height="225"></iframe>
+
+<p><strong>My Employer</strong>:</p>
+
+<iframe id="twitter-widget-6" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-tweet twitter-tweet-rendered" allowfullscreen="" style="border: none; max-width: 100%; min-width: 220px; margin: 10px 0px; padding: 0px; display: block; position: static; visibility: visible; width: 500px;" title="Twitter Tweet" height="203"></iframe>
+
+<h3>Comments</h3>
+
+<div id="disqus_thread"><iframe id="dsq-1" data-disqus-uid="1" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/saved_resource.html" style="width: 100% !important; border: none !important; overflow: hidden !important; height: 5590px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe><iframe id="dsq-indicator-north" data-disqus-uid="indicator-north" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" style="width: 630px !important; border: none !important; overflow: hidden !important; top: 0px !important; min-width: 630px !important; max-width: 630px !important; position: fixed !important; z-index: 2147483646 !important; height: 29px !important; min-height: 29px !important; max-height: 29px !important; display: none !important;"></iframe><iframe id="dsq-indicator-south" data-disqus-uid="indicator-south" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" style="width: 630px !important; border: none !important; overflow: hidden !important; bottom: 0px !important; min-width: 630px !important; max-width: 630px !important; position: fixed !important; z-index: 2147483646 !important; height: 29px !important; min-height: 29px !important; max-height: 29px !important; display: none !important;"></iframe></div>
+
+</article>
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          © Shusaku Uesugi <time datetime="2015-07-16T01:52:09+00:00">2015</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    <script async="" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/analytics.js"></script><script async="" src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/widgets.js" charset="utf-8"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-32987822-18', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script src="./React.js Introduction For People Who Know Just Enough jQuery To Get By · React for Designers_files/embed.min.js"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'reactfordesigners';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+  
+
+<iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" style="display: none;"></iframe><script id="hiddenlpsubmitdiv" style="display: none;"></script><script>try{for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; if (typeof(lastpass_f.lpsubmitorig2)=='object'){ continue;}lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ if (typeof(d.innerText) != 'undefined') { d.innerText=i.toString(); } else { d.textContent=i.toString(); } } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }}catch(e){}</script></body></html>
